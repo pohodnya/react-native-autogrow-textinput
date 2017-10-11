@@ -103,7 +103,7 @@ export default class AutoGrowingTextInput extends Component {
         nativeEvent.contentSize.height !== this.height
       ) {
         this.height = nativeEvent.height
-        this.input._handleNativeEvent(nativeEvent)
+        this._handleNativeEvent(nativeEvent)
       }
     }
     if (this.props.onContentSizeChange) {
