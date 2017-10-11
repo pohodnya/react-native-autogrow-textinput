@@ -95,14 +95,15 @@ export default class AutoGrowingTextInput extends Component {
   _onContentSizeChangeAndroid(event) {
     if(this.state.androidFirstContentSizeChange) {
       this.setState({androidFirstContentSizeChange: false});
+      const {nativeEvent} = event;
       if (
         Platform.OS !== 'ios' &&
         nativeEvent &&
         nativeEvent.contentSize &&
         nativeEvent.contentSize.height !== this.height
       ) {
-        this.height = event.nativeEvent.height
-        this.input._handleNativeEvent(event.nativeEvent)
+        this.height = nativeEvent.height
+        this.input._handleNativeEvent(nativeEvent)
       }
     }
     if (this.props.onContentSizeChange) {
